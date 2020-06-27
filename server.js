@@ -1,5 +1,14 @@
 const http = require('http');
 const app = require('./app');
+const mongoose = require('mongoose');
+
+//mongodb+srv://root:<password>@tp-nodejs-d7mrd.mongodb.net/<dbname>?retryWrites=true&w=majority
+
+mongoose.connect('mongodb+srv://root:root@tp-nodejs-d7mrd.mongodb.net/TP-NodeJS?retryWrites=true&w=majority',
+  { useNewUrlParser: true,
+    useUnifiedTopology: true })
+  .then(() => console.log('Connexion à MongoDB réussie !'))
+  .catch(() => console.log('Connexion à MongoDB échouée !'));
 
 const normalizePort = val => {
   const port = parseInt(val, 10);
